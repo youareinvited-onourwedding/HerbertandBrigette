@@ -1,0 +1,2097 @@
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    background:#ffffff;
+    color:#333;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.website{
+    display:flex;
+    width:100%;
+    height:100vh;
+}
+
+/* =========================================================
+   LEFT PANEL (70%)
+========================================================= */
+
+.home{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:70%;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+/* =========================================================
+   IMAGE SLIDER
+========================================================= */
+
+.slider{
+
+    position:absolute;
+    inset:0;
+
+}
+
+.slide{
+
+    position:absolute;
+    inset:0;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    opacity:0;
+
+    transition:opacity 1.5s ease;
+
+}
+
+.slide.active{
+
+    opacity:1;
+
+}
+
+
+/* ==========================================
+   SLIDER INDICATORS
+========================================== */
+
+.slider-indicators{
+
+    position:absolute;
+    bottom:5px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:5px;
+    z-index:20;
+
+}
+
+.indicator{
+
+    width:15px;
+    height:5px;
+    background:rgba(255,255,255,.45);
+    border-radius:20px;
+    transition:.4s;
+
+}
+
+.indicator.active{
+
+    background:#D58A94;   /* Active blue */
+
+}
+
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
+
+.overlay{
+
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    z-index:2;
+
+}
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content{
+
+    position:relative;
+    z-index:5;
+    text-align:center;
+    color:white;
+    padding:40px;
+    max-width:700px;
+
+}
+
+.hero-content h3{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size:30px;
+    margin-bottom:10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+
+}
+
+.hero-content h1{
+    font-family: "Great Vibes", cursive;
+    font-size:90px;
+    font-weight:400;
+    /*margin-bottom:5px;*/
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+}
+
+.hero-content h2{
+    font-size:30px;
+    font-weight:normal;
+    margin-bottom:10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+}
+
+.hero-content p{
+    font-family:'Poppins',sans-serif;
+    font-weight:normal;
+    font-size:16px;
+   /* margin-bottom:50px;*/
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+}
+
+.hero-content span{
+
+    font-weight:300;
+
+}
+
+.hero-content p{
+
+    font-size:15px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+
+}
+
+/* RSVP BUTTON */
+
+.hero-btn{
+
+    display:inline-block;
+    padding:5px 15px;
+    border-radius:30px;
+    border: 1px solid #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-decoration:none;
+    color:#FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+    font-weight:600;
+    transition:.35s;
+
+}
+
+.hero-btn:hover{
+
+    background:#D58A94;
+    color:white;
+    transform:translateY(-3px);
+
+}
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.menu-wrapper{
+
+    position:absolute;
+    top:35px;
+    left:35px;
+    z-index:100;
+
+}
+
+/* Hide Checkbox */
+
+#menu-toggle{
+
+    display:none;
+
+}
+
+/* Hamburger */
+
+.menu-button{
+
+    width:60px;
+    height:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color: #C0C0C0;
+    cursor:pointer;
+    font-size:22px;
+    transition:.3s;
+
+}
+
+.menu-button:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* Dropdown */
+
+.menu{
+
+    position:absolute;
+    top:75px;
+    left:0;
+    width:220px;
+    background:#D58A94;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-10px);
+    transition:.35s;
+
+}
+
+/* Hover */
+
+.menu-wrapper:hover .menu{
+
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+
+}
+
+/* Click */
+
+#menu-toggle:checked + .menu-button + .menu{
+
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+
+}
+
+.menu a{
+
+    display:block;
+    padding:18px 25px;
+    text-decoration:none;
+    color:#ffffff;
+    transition:.3s;
+    border-bottom:1px solid #eee;
+
+}
+
+.menu a:last-child{
+
+    border-bottom:none;
+
+}
+
+.menu a:hover{
+
+    background:#F4C2C2;
+    padding-left:35px;
+
+}
+
+/* =========================================================
+   RIGHT PANEL (30%)
+========================================================= */
+
+.content{
+
+    margin-left:70%;
+    width:30%;
+    height:100vh;
+    overflow-y:auto;
+    scroll-behavior:smooth;
+    background:#fff;
+
+}
+
+/* Scrollbar */
+
+.content::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.content::-webkit-scrollbar-thumb{
+
+    background:#bbb;
+    border-radius:20px;
+
+}
+
+.content::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
+}
+
+/* =========================================================
+   CONTENT SECTIONS
+========================================================= */
+
+.container{
+
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px;
+    border-bottom:1px solid #e6e6e6;
+    background:#ffffff;
+
+}
+
+.container h2{
+
+    font-size:30px;
+    color:#bd617d;
+
+}
+
+/* =================OUR STORY=================*/
+
+
+
+.story{
+
+    width:100%;
+    background:#ffffff;
+
+}
+
+
+.story-container{
+
+    position:relative;
+    max-width:1200px;
+    margin:auto;
+
+}
+
+
+
+.story-title{
+    font-family: "Great Vibes", cursive;
+    font-style:italic;
+    color: #bd617d;
+    text-align:center;
+    font-size:60px;
+    margin-top:60px;
+    margin-bottom:10px;
+    font-weight: normal;
+
+}
+
+
+
+/* Portrait */
+
+.portrait-image{
+
+    text-align:center;
+    margin-bottom:5px;
+}
+
+.portrait-image img{
+    width:90%;
+    max-width:850px;
+    height:auto;
+    display:block;
+    margin:auto;
+    border-radius:5px;
+    margin-bottom: 20px;
+
+}
+
+/* Landscape */
+
+.landscape-image{
+    margin:30px 0;
+
+}
+
+.landscape-image img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:5px;
+
+}
+
+/* Paragraph */
+
+.story-text{ 
+    max-width:850px;
+    margin:0 auto;
+    text-align:center;
+
+
+}
+
+.story-text p{
+    font-family:'Poppins',sans-serif;
+    font-weight:normal;
+    padding:5px 5%; 
+    font-size:16px;
+    line-height:1.5;
+    text-align:center;
+    color:#000000;
+
+}
+
+
+/* ==========================================
+   PRE-WEDDING GALLERY
+========================================== */
+
+.gallery{
+
+    width:100%;
+    padding:100px 5%;
+    background:#ffffff;
+    box-sizing:border-box;
+
+}
+
+.gallery-container{
+
+    max-width:1400px;
+    margin:auto;
+
+}
+
+/* Title */
+
+.gallery-title{
+
+    font-family: "Great Vibes", cursive;
+    font-style:italic;
+    color: #bd617d;
+    text-align:center;
+    font-size:60px;
+    margin-bottom:20px;
+    font-weight: normal;
+
+}
+
+/* Subtitle */
+
+.gallery-subtitle{
+    font-family:'Poppins',sans-serif;
+    font-weight:normal;
+    max-width:700px;
+    margin:0 auto 70px;
+    text-align:center;
+    font-size:16px;
+    line-height:1.5;
+    color:#000000;
+
+}
+
+.gallery-subtitle a{
+    font-family:'Poppins',sans-serif;
+    font-weight: 450;
+    color: #bd617d;
+    text-decoration:none;
+    font-weight:600;
+    font-size:16px;
+}
+
+.gallery-subtitle a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+.program-container h2{
+    font-family: "Great Vibes", cursive;
+    color: #bd617d;
+    text-align:center;
+    font-size:60px;
+    margin-bottom:20px;
+    font-weight: 200;
+
+}
+
+/* ==========================================
+   MASONRY GALLERY
+========================================== */
+
+.gallery-grid{
+
+    column-count:3;
+    column-gap:2px;
+
+}
+
+.gallery-item{
+
+    break-inside:avoid;
+    margin-bottom:2px;
+    cursor:pointer;
+    overflow:hidden;
+    border-radius:5px;
+
+}
+
+.gallery-item img{
+    width:100%;
+    display:block;
+    border-radius:5px;
+    transition:.45s;
+    b
+
+}
+
+.gallery-item:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================================
+   LIGHTBOX
+========================================== */
+
+.lightbox{
+
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+
+}
+
+.lightbox.active{
+
+    display:flex;
+
+}
+
+.lightbox-image{
+
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+    animation:zoom .35s;
+
+}
+
+/* Close */
+
+.close-lightbox{
+
+    position:absolute;
+    top:25px;
+    right:40px;
+    color:#fff;
+    font-size:45px;
+    cursor:pointer;
+    user-select:none;
+
+}
+
+/* Previous */
+
+.prev{
+
+    position:absolute;
+    left:30px;
+    background:none;
+    border:none;
+    color:white;
+    font-size:55px;
+    cursor:pointer;
+
+}
+
+/* Next */
+
+.next{
+
+    position:absolute;
+    right:30px;
+    background:none;
+    border:none;
+    color:white;
+    font-size:55px;
+    cursor:pointer;
+
+}
+
+/* Counter */
+
+.image-counter{
+
+    position:absolute;
+    bottom:30px;
+    color:white;
+    font-size:18px;
+    letter-spacing:2px;
+
+}
+
+/* Hover */
+
+.prev:hover,
+.next:hover,
+.close-lightbox:hover{
+
+    opacity:.7;
+
+}
+
+/* Zoom Animation */
+
+@keyframes zoom{
+
+    from{
+
+        transform:scale(.8);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}
+
+
+
+
+/* =====================================
+   PROGRAM
+===================================== */
+
+.program{
+
+    width:100%;
+    background:#ffffff;
+    padding:100px 5%;
+
+}
+
+.program-container{
+
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+
+}
+
+/* Title */
+
+.program-title{
+
+    font-family: "Great Vibes", cursive;
+    font-style:italic;
+    font-size:20px;
+    font-weight:500;
+    margin-bottom:60px;
+    color: #bd617d;
+
+}
+
+/* Date */
+
+.program-date{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 900;
+    font-size:26px;
+    font-style: normal;
+    margin-bottom:35px;
+
+}
+
+/* Divider */
+
+.program-divider{
+
+    width:100%;
+    margin:0 auto 50px;
+    border:none;
+    border-top:1px solid #D58A94;
+
+}
+
+/* Event */
+
+.program-event{
+
+    margin-bottom:30px;
+
+}
+
+.event-title{
+    font-family: "Great Vibes", cursive;
+    font-style:italic;
+    font-weight:normal;
+    font-size:40px;
+    margin-bottom:8px;
+    color: #bd617d;
+
+}
+
+.event-time{
+    font-family:'Poppins',sans-serif;
+    font-weight: 450;
+    font-size:18px;
+    margin-bottom:20px;
+    color: #000000;
+
+
+}
+
+.event-description{
+
+    font-family:'Poppins',sans-serif;
+    font-weight:normal;
+    max-width:750px;
+    margin:auto;
+    font-size:16px;
+    line-height:1.5;
+    color:#000000;
+    margin-bottom:20px;
+
+}
+
+
+/* Location */
+
+.event-location{
+    font-family:'Poppins',sans-serif;
+    font-weight: 450;
+    color:#000000;
+    font-size:16px;
+    margin-bottom:30px;
+
+}
+
+/* Google Map */
+
+.map-container{
+
+    border-radius:5px;
+    overflow:hidden;
+    margin-bottom:20px;
+
+}
+
+.map-container iframe{
+
+    width:90%;
+    height:300px;
+    border:0;
+
+}
+
+
+.cocktail-title{
+
+    font-family: "Great Vibes", cursive;
+    font-weight:normal;
+    font-size:40px;
+    margin-bottom:8px;
+    color: #bd617d;
+
+}
+
+.cocktail-time{
+    font-family:'Poppins',sans-serif;
+    font-weight: 450;
+    font-size:18px;
+    margin-bottom:20px;
+    color: #000000;
+
+}
+
+.cocktail-description{
+
+    font-family:'Poppins',sans-serif;
+    font-weight:normal;
+    color:#000000;
+    font-size:16px;
+    max-width:750px;
+    line-height:1.5;
+    margin-bottom:30px;
+
+}
+
+
+.reception-title{
+    font-family: "Great Vibes", cursive;
+    font-weight:normal;
+    font-size:40px;
+    margin-bottom:8px;
+    color: #bd617d;
+
+}
+
+.reception-time{
+
+    font-family:'Poppins',sans-serif;
+    font-weight: 450;
+    font-size:18px;
+    margin-bottom:20px;
+    color: #000000;
+
+}
+
+.reception-description{
+
+    font-family:'Poppins',sans-serif;
+    font-weight:normal;
+    font-size:16px;
+    max-width:750px;
+    margin:auto;
+    line-height:1.5;
+    color:#000000;
+    margin-bottom:20px;
+
+}
+
+/* ==========================================
+   ENTOURAGE
+========================================== */
+
+.entourage{
+
+    width:100%;
+
+    padding:100px 5%;
+
+}
+
+.entourage-container{
+
+    max-width:900px;
+    width:100%;
+    margin:auto;
+    text-align:center;
+
+}
+
+/* Main Title */
+
+.entourage-title1{
+
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 1200;
+    font-size:30px;
+    margin-bottom:20px;
+    color:#bd617d;
+
+}
+
+.entourage-title2{
+
+    font-family: "Great Vibes", cursive;
+    font-size:35px;
+    font-style:italic;
+    font-weight:550;
+    margin-bottom:50px;
+    color:#bd617d;
+
+}
+
+/* Section Heading */
+
+.section-heading{
+    font-family: "Great Vibes", cursive;
+    font-style:italic;
+    font-size:30px;
+    font-weight:500;
+    margin:80px 0 20px;
+    color:#bd617d;
+
+}
+
+/* ==========================================
+   TWO COLUMN
+========================================== */
+
+.two-column{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:5px;
+    margin-bottom:1px;
+
+}
+
+/* ==========================================
+   THREE COLUMN
+========================================== */
+
+.three-column{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:5px;
+    margin-bottom:1px;
+
+}
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.card{
+
+    padding:5px;
+
+}
+
+.card h3{
+    font-family:'Poppins',sans-serif;
+    font-weight: 1200;
+    font-size:18px;
+    margin-bottom:5px;
+    color:#bd617d;
+
+}
+
+.card p{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-size:16px;
+    font-style: normal;
+    line-height:1.5;
+    color:#bd617d;
+    margin:5px 0;
+
+}
+
+/* ==========================================
+   CENTER SECTION
+========================================== */
+
+.center-card{
+
+    max-width:700px;
+    margin:0 auto 10px;
+
+}
+
+.center-card h3{
+    font-family:'Poppins',sans-serif;
+    font-weight: 1200;
+    font-size:18px;
+    margin-bottom:5px;
+    color:#bd617d;
+
+}
+
+.center-card p{
+  font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-size:16px;
+    line-height:1.5;
+    color:#bd617d;
+
+}
+
+/* ==========================================
+   PRINCIPAL SPONSORS
+========================================== */
+
+.sponsor-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1.5px 20px;
+    max-width:900px;
+    margin:0 auto 30px;
+
+}
+
+.sponsor-grid div{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-size:16px;
+    color:#bd617d;
+    line-height:1.5;
+
+}
+
+/* ==========================================
+   DIVIDER (optional)
+========================================== */
+
+.entourage hr{
+
+    width:120px;
+    border:none;
+    border-top:1px solid #c8b9aa;
+    margin:10px auto;
+
+}
+
+
+.entourage{
+
+    width:100%;
+    padding:100px 5%;
+    box-sizing:border-box;
+
+    /* Background Image */
+    background-image:url("images/entourage-bg.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:scroll;
+
+}
+
+/*==============================
+DRESS CODE
+==============================*/
+
+.dress-code{
+    margin-top:25px;
+    text-align:center;
+    max-width:900px;
+    width:100%;
+    margin:auto;
+}
+
+
+.dress-title{
+    font-family: "Great Vibes", cursive;
+    font-style:italic;
+    color: #bd617d;
+    text-align:center;
+    font-size:60px;
+    margin-bottom:5px;
+    font-weight: normal;
+
+
+}
+
+.dress-subtitle{
+    font-family: "Cormorant Garamond", serif;
+    font-size:30px;
+    font-weight:800;
+    margin-bottom:30px;
+    color:#000000;
+
+}
+
+.dress-group{
+
+    margin-bottom:45px;
+
+}
+
+.dress-group h4{
+
+    font-size:16px;
+    font-weight:650;
+    margin-bottom:10px;
+    color:#000000;
+
+}
+
+.dress-group p{
+    font-family:'Poppins',sans-serif;
+    font-weight:normal;
+    font-size:16px;
+    line-height:1.5;
+    color:#000000;
+
+}
+
+.semi-formal{
+
+    font-size:5px;
+    font-weight:600;
+
+}
+
+/* Color Palette */
+
+.color-palette{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:10px 0;
+
+}
+
+.color{
+
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    border:2px solid #ddd;
+
+}
+
+/* Sample Colors */
+
+.c1{background:#D09696;}
+.c2{background:#BF7E7E;}
+.c3{background:#B06A6A;}
+.c4{background:#999999;}
+.c5{background:#8c8c8c;}
+.c6{background:#808080;}
+
+
+/* Notes */
+
+.dress-note{
+
+    max-width:700px;
+    margin:20px auto;
+    font-size:5px;
+    line-height:1.5;
+    color:#000000;
+
+}
+
+
+*=========================================
+  REMINDERS
+=========================================*/
+
+.reminders{
+
+    width:100%;
+    padding:100px 20px;
+}
+
+.reminders-container{
+
+    max-width:900px;
+    margin:auto;
+
+}
+
+
+.section-title{
+
+    font-family: "Great Vibes", cursive;
+    font-style:italic;
+    color: #bd617d;
+    text-align:center;
+    font-size:45px;
+    margin-bottom:35px;
+    margin-top: 35px;
+    font-weight: normal;
+
+}
+
+.reminder-subtitle{
+    font-family:'Poppins',sans-serif;
+    font-weight:normal;
+    max-width:700px;
+    margin:0 auto 70px;
+    text-align:center;
+    font-size:16px;
+    line-height:1.5;
+    color:#000000;
+    margin-top: 15px;
+
+}
+
+.reminder-subtitle a{
+    font-family:'Poppins',sans-serif;
+    font-weight: 450;
+    color: #bd617d;
+    text-decoration:none;
+    font-size:16px;
+}
+
+/* Reminder Row */
+
+
+
+.gift-qr-section {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.qr-instruction {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #bd617d;
+}
+
+.qr-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.qr-item {
+    width: 90px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 25px;
+}
+
+.qr-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background-color: white;
+    padding: 5px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.qr-item p {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-top: 6px;
+    overflow-wrap: anywhere;
+    color: #000000;
+}
+
+
+.reminder-item{
+
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:10px;
+    margin-bottom:10px;
+
+}
+
+/* Left Box */
+
+.reminder-icon{
+
+    background:#bd617d;
+    border-radius:18px;
+    padding:35px 25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+}
+
+.reminder-icon img{
+
+    width:80px;
+    height:80px;
+    object-fit:contain;
+    margin-bottom:18px;
+
+}
+
+.reminder-icon h3{
+
+    font-family:'Poppins',sans-serif;
+    font-size:18px;
+    font-weight:normal;
+    line-height:1.5;
+    color:#fff;
+    text-align:center;
+    text-transform:uppercase;
+
+}
+
+/* Right Box */
+
+.reminder-text{
+
+    background:#bd617d;
+    border-radius:18px;
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+}
+
+.reminder-text p{
+    font-family:'Poppins',sans-serif;
+    font-size:16px;
+    font-weight:normal;
+    line-height:1.5;
+    color:#fff;
+    text-align:center;
+
+}
+
+
+.reminder-text ul{
+    font-family:'Poppins',sans-serif;
+    font-size:16px;
+    font-weight:normal;
+    line-height:1.5;
+    color:#fff;
+    text-align:center;
+    padding-left:25px;
+
+}
+
+.reminder-text li{
+    font-family:'Poppins',sans-serif;
+    font-size:16px;
+    font-weight:normal;
+    line-height:1.5;
+    color:#fff;
+    text-align:center;
+
+}
+
+/* Hover */
+
+.reminder-item{
+    transition:.3s;
+}
+
+.reminder-item:hover{
+    transform:translateY(-3px);
+}
+
+
+
+/* ==========================================
+                RSVP SECTION
+========================================== */
+
+.rsvp-section{
+
+    width:100%;
+    padding:100px 20px;
+    background:#FDFBF8;
+    box-sizing:border-box;
+
+}
+
+.rsvp-container{
+
+    width:100%;
+    max-width:900px;
+    margin:0 auto;
+    text-align:center;
+
+}
+
+/* ==========================================
+                TITLE
+========================================== */
+
+:root {
+  --bg-color: #fcf8f5;
+  --primary-color: #b57482;
+  --primary-hover: #9e606d;
+  --secondary-color: #8c8584;
+  --secondary-hover: #756f6e;
+  --text-color: #333333;
+  --input-border: #ebd9d8;
+  --modal-bg: #f9f6f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+}
+
+/*body {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}*/
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  padding: 20px;
+}
+
+h1.title {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #000000;
+  margin-bottom: 35px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: #ffffff;
+  color: #555;
+  font-family: inherit;
+}
+
+.form-group input::placeholder {
+  color: #b0a8a6;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: #ffffff;
+}
+
+.btn-yes {
+  background-color: var(--primary-color);
+}
+
+.btn-yes:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-no {
+  background-color: var(--secondary-color);
+}
+
+.btn-no:hover {
+  background-color: var(--secondary-hover);
+}
+
+/* Companion Subform */
+.companion-subform {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.subform-header {
+  font-size: 1.0rem;
+  color: #000000;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.input-with-btn {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.input-with-btn input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1.5px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.btn-add {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 22px;
+  font-size: 1.0rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.btn-add:hover {
+  background-color: var(--primary-hover);
+}
+
+.tags-container {
+  min-height: 52px;
+  border: 1.5px solid var(--input-border);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  background-color: #ffffff;
+  margin-bottom: 25px;
+}
+
+.tag-pill {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tag-remove {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.0rem;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.tag-remove:hover {
+  opacity: 1;
+}
+
+.seats-counter-section {
+  margin: 20px 0 30px 0;
+}
+
+.seats-label {
+  font-size: 1.25rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.seats-number {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 50px;
+}
+
+.btn-done {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 14px 45px;
+  font-size: 1.0rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.btn-done:hover {
+  background-color: var(--primary-hover);
+}
+
+.guest-list-link {
+  display: inline-block;
+  margin-top: 25px;
+  color: var(--primary-color);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.message-box {
+    font-family:'Poppins',sans-serif;
+    margin-top: 20px;
+    border-radius: 8px;
+    line-height: 1.4;
+    display: none;
+    font-size:16px;
+    font-weight:normal;
+    line-height:1.5;
+    color:#000000;
+    text-align:center;
+}
+
+.notification-text {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.message-box.info {
+  background-color: #f1e4e6;
+  color: var(--primary-color);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-card {
+  background-color: var(--modal-bg);
+  padding: 30px 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+.modal-icon {
+  font-size: 2rem;
+  color: var(--primary-color); /* Updated to match theme color */
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-size: 1.3rem;
+  color: var(--primary-color); /* Updated to match theme color */
+  margin-bottom: 15px;
+}
+
+.guest-names-list {
+  list-style: none;
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.guest-names-list li {
+  font-size: 1rem;
+  color: var(--primary-color); /* Updated text color to match theme */
+  margin-bottom: 8px;
+}
+
+.btn-close {
+  background-color: var(--primary-color); /* Updated button background color to match theme */
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-close:hover {
+  background-color: var(--primary-hover);
+}
+
+.rsvpimportant-reminder p{
+    font-family:'Poppins',sans-serif;
+    font-size:12px;
+    font-style: italic;
+    font-weight:normal;
+    line-height:1.5;
+    color:#000000;
+    text-align:center;
+    margin-top: 80px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:992px){
+
+body{
+
+    overflow:auto;
+
+}
+
+.website{
+
+    display:block;
+
+}
+
+.home{
+
+    position:relative;
+
+    width:100%;
+    height:100vh;
+
+}
+
+.content{
+
+    width:100%;
+    height:auto;
+
+    margin-left:0;
+
+    overflow:visible;
+
+}
+
+.container{
+
+    min-height:100vh;
+
+    padding:50px;
+
+}
+
+
+.hero-content h1{
+
+    font-size:80px;
+
+}
+
+.hero-content h3{
+
+    font-size:18px;
+
+}
+
+.hero-content p{
+
+    font-size:14px;
+
+}
+
+.menu-wrapper{
+
+    position:fixed;
+
+    top:20px;
+    left:20px;
+
+}
+
+/*.story-top-decoration{
+
+    width:100%;
+
+}*/
+
+.portrait-image img{
+
+    width:70%;
+
+}
+
+.story-text{
+
+    max-width:100%;
+
+}
+
+.story-title{
+
+    font-size:110px;
+
+}
+
+.gallery-title{
+    font-size:70px
+}
+
+.gallery-subtitle{
+
+}
+
+.entourage-title1{
+    font-size: 40px;
+}
+
+.rsvp-section{
+
+    padding:80px 30px;
+
+}
+
+.rsvp-title{
+
+    font-size:60px;
+
+}
+
+.rsvp-description{
+
+    font-size:20px;
+
+}
+
+.input-group input{
+
+    font-size:20px;
+
+}
+
+.attendance-title{
+
+    font-size:34px;
+
+}
+
+.attendance-btn{
+
+    max-width:380px;
+
+    font-size:20px;
+
+}
+
+.response-message{
+
+    font-size:20px;
+
+}
+
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:576px){
+
+
+.hero-content{
+
+    padding:20px;
+
+}
+
+.hero-content h1{
+
+    font-size:75px;
+
+}
+
+.hero-content h3{
+
+    font-size:22px;
+    letter-spacing:2px;
+
+}
+
+.hero-content h2{
+
+    font-size:20px;
+    letter-spacing:2px;
+
+}
+
+.hero-content p{
+
+    font-size:18px;
+
+}
+
+.hero-btn{
+
+    padding:3px 14px;
+
+    font-size:15px;
+
+}
+
+.container{
+
+    padding:35px;
+
+}
+
+.container h2{
+
+    font-size:34px;
+
+}
+
+.menu-button{
+
+    width:52px;
+    height:52px;
+
+    font-size:18px;
+
+}
+
+.menu{
+
+    width:200px;
+
+}
+
+/* .story-top-decoration{
+
+    width:100%;
+
+}*/
+
+.portrait-image img{
+
+    width:90%;
+
+}
+
+.story-title{
+
+    font-size:65px;
+
+}
+
+.story-text p{
+
+    font-size:16px;
+    line-height:1.8;
+
+}
+
+.gallery-title{
+    font-size:50px
+}
+
+.gallery-subtitle{
+      font-size:16px;
+    line-height:1.8;  
+}
+
+.entourage-title1{
+    font-size: 29px;
+}
+
+.card p{
+    font-size: 16px;
+}
+
+.rsvp-section{
+
+    padding:60px 20px;
+
+}
+
+.rsvp-title{
+
+    font-size:48px;
+
+}
+
+.rsvp-description{
+
+    font-size:18px;
+    margin-bottom:50px;
+
+}
+
+.input-group{
+
+    margin-bottom:50px;
+
+}
+
+.input-group input{
+
+    font-size:18px;
+    padding:18px 24px;
+
+}
+
+.attendance-title{
+
+    font-size:28px;
+
+}
+
+.attendance-btn{
+
+    max-width:100%;
+    font-size:18px;
+    padding:18px;
+
+}
+
+.response-message{
+
+    font-size:18px;
+
+}
+
+
+
+}
+
