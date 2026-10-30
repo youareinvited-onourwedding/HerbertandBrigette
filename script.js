@@ -1,3 +1,28 @@
+
+// WEDDING WELCOME POPUP
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const welcomeOverlay = document.getElementById("welcomeOverlay");
+  const enterWebsite = document.getElementById("enterWebsite");
+
+  if (!welcomeOverlay || !enterWebsite) return;
+
+  // Prevent scrolling behind the welcome popup
+  document.body.style.overflow = "hidden";
+
+  enterWebsite.addEventListener("click", function () {
+
+    welcomeOverlay.classList.add("is-hidden");
+
+    document.body.style.overflow = "";
+
+  });
+
+});
+
+
+
 /* ==========================================
    BACKGROUND IMAGE SLIDER
 ========================================== */
