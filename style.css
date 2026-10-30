@@ -1765,6 +1765,130 @@ h1.title {
     margin-top: 80px;
 }
 
+/* =================================
+   WEDDING WELCOME POPUP
+================================= */
+
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(25, 31, 35, 0.48);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.welcome-card {
+  width: min(100%, 440px);
+  min-height: 380px;
+  padding: 28px 34px 22px;
+  background: #f0f1f2;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+  animation: welcomeAppear 0.7s ease;
+}
+
+.welcome-label {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 5px 12px;
+  color: #bd7783;
+  background: #f2e4e6;
+  border-radius: 30px;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.welcome-names {
+  margin: 0;
+  color: #222b3a;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(39px, 9vw, 49px);
+  font-weight: normal;
+  line-height: 1.2;
+  color: #bd6475;
+}
+
+.welcome-names span {
+  color: #c47b86;
+  font-size: 0.7em;
+}
+
+.welcome-date {
+  margin: 9px 0 0;
+  color: #856d58;
+  font-family: Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.welcome-divider {
+  width: 48px;
+  height: 1px;
+  margin: 17px auto;
+  background: #cf8490;
+}
+
+.welcome-message {
+  margin: 9px auto;
+  max-width: 350px;
+  color: #77818a;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.welcome-button {
+  display: block;
+  margin: 19px auto 0;
+  padding: 11px 24px;
+  color: white;
+  background: #bd6475;
+  border: none;
+  border-radius: 30px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.welcome-button:hover {
+  background: #a94f62;
+  transform: translateY(-2px);
+}
+
+.welcome-footer {
+  margin: 16px 0 0;
+  color: #a0a5aa;
+  font-family: Arial, sans-serif;
+  font-size: 7px;
+  letter-spacing: 1.3px;
+}
+
+.welcome-overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@keyframes welcomeAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* =========================================================
    TABLET
@@ -2091,6 +2215,18 @@ body{
 
 }
 
+  .welcome-card {
+    max-width: 390px;
+    padding: 30px 22px 24px;
+  }
+
+  .welcome-names {
+    font-size: clamp(29px, 8vw, 38px);
+  }
+
+  .welcome-message {
+    font-size: 11px;
+  }
 
 
 }
